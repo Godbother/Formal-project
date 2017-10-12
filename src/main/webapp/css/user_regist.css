@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+.bg-log {
+	width: 100%;
+	background-image: url("../image/log-backim.jpg");
+}
+.check{
+	display: none;
+	font-size: 25px;
+	color: red;
+}
+.home{
+	width: 80px;
+	height: 70px;
+	position: absolute;
+	right: 600px;
+	top:200px;
+	z-index: 99;
+}
+.home:ACTIVE {
+	right: 600px;
+	top:200px;
+	width: 100px;
+	height: 90px;
+}
+.homebox{
+	width: 120px;
+	height: 80px;
+}

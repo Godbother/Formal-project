@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.generator.shopcarMapper">
+  <resultMap id="BaseResultMap" type="pojo.generator.shopcar">
+    <id column="id_shopcar" jdbcType="INTEGER" property="idShopcar" />
+    <result column="shopcar_itemname" jdbcType="VARCHAR" property="shopcarItemname" />
+    <result column="shopcar_itemprice" jdbcType="INTEGER" property="shopcarItemprice" />
+    <result column="shopcar_itemnum" jdbcType="INTEGER" property="shopcarItemnum" />
+    <result column="shopcar_adddate" jdbcType="INTEGER" property="shopcarAdddate" />
+    <result column="shopcar_uid" jdbcType="INTEGER" property="shopcarUid" />
+    <result column="orders_id_orders" jdbcType="INTEGER" property="ordersIdOrders" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id_shopcar, shopcar_itemname, shopcar_itemprice, shopcar_itemnum, shopcar_adddate, 
+    shopcar_uid, orders_id_orders
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shopcar
+    where id_shopcar = #{idShopcar,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shopcar
+    where id_shopcar = #{idShopcar,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pojo.generator.shopcar">
+    insert into shopcar (id_shopcar, shopcar_itemname, shopcar_itemprice, 
+      shopcar_itemnum, shopcar_adddate, shopcar_uid, 
+      orders_id_orders)
+    values (#{idShopcar,jdbcType=INTEGER}, #{shopcarItemname,jdbcType=VARCHAR}, #{shopcarItemprice,jdbcType=INTEGER}, 
+      #{shopcarItemnum,jdbcType=INTEGER}, #{shopcarAdddate,jdbcType=INTEGER}, #{shopcarUid,jdbcType=INTEGER}, 
+      #{ordersIdOrders,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.generator.shopcar">
+    insert into shopcar
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="idShopcar != null">
+        id_shopcar,
+      </if>
+      <if test="shopcarItemname != null">
+        shopcar_itemname,
+      </if>
+      <if test="shopcarItemprice != null">
+        shopcar_itemprice,
+      </if>
+      <if test="shopcarItemnum != null">
+        shopcar_itemnum,
+      </if>
+      <if test="shopcarAdddate != null">
+        shopcar_adddate,
+      </if>
+      <if test="shopcarUid != null">
+        shopcar_uid,
+      </if>
+      <if test="ordersIdOrders != null">
+        orders_id_orders,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="idShopcar != null">
+        #{idShopcar,jdbcType=INTEGER},
+      </if>
+      <if test="shopcarItemname != null">
+        #{shopcarItemname,jdbcType=VARCHAR},
+      </if>
+      <if test="shopcarItemprice != null">
+        #{shopcarItemprice,jdbcType=INTEGER},
+      </if>
+      <if test="shopcarItemnum != null">
+        #{shopcarItemnum,jdbcType=INTEGER},
+      </if>
+      <if test="shopcarAdddate != null">
+        #{shopcarAdddate,jdbcType=INTEGER},
+      </if>
+      <if test="shopcarUid != null">
+        #{shopcarUid,jdbcType=INTEGER},
+      </if>
+      <if test="ordersIdOrders != null">
+        #{ordersIdOrders,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.generator.shopcar">
+    update shopcar
+    <set>
+      <if test="shopcarItemname != null">
+        shopcar_itemname = #{shopcarItemname,jdbcType=VARCHAR},
+      </if>
+      <if test="shopcarItemprice != null">
+        shopcar_itemprice = #{shopcarItemprice,jdbcType=INTEGER},
+      </if>
+      <if test="shopcarItemnum != null">
+        shopcar_itemnum = #{shopcarItemnum,jdbcType=INTEGER},
+      </if>
+      <if test="shopcarAdddate != null">
+        shopcar_adddate = #{shopcarAdddate,jdbcType=INTEGER},
+      </if>
+      <if test="shopcarUid != null">
+        shopcar_uid = #{shopcarUid,jdbcType=INTEGER},
+      </if>
+      <if test="ordersIdOrders != null">
+        orders_id_orders = #{ordersIdOrders,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id_shopcar = #{idShopcar,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pojo.generator.shopcar">
+    update shopcar
+    set shopcar_itemname = #{shopcarItemname,jdbcType=VARCHAR},
+      shopcar_itemprice = #{shopcarItemprice,jdbcType=INTEGER},
+      shopcar_itemnum = #{shopcarItemnum,jdbcType=INTEGER},
+      shopcar_adddate = #{shopcarAdddate,jdbcType=INTEGER},
+      shopcar_uid = #{shopcarUid,jdbcType=INTEGER},
+      orders_id_orders = #{ordersIdOrders,jdbcType=INTEGER}
+    where id_shopcar = #{idShopcar,jdbcType=INTEGER}
+  </update>
+</mapper>
