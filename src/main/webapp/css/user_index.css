@@ -277,3 +277,47 @@ a {
 	height: 30px;
 	line-height: 28px;
 }
+.left-box{
+	margin-top: 40px;
+	float: left;
+	width: 500px;
+	height: 500px;
+	margin-left: 70px;
+}
+.main-box{
+	height: 1080px;
+	width: 90%;
+	z-index: 1;
+}
+.right-box{
+	margin-top: 40px;
+	margin-left: 40px;
+	float: left;
+}
+.title{
+	font-size: 36px;
+	text-align: left;
+}
+.little_title{
+	font-size: 28px;
+	text-align: left;
+}
+.pri-parm-do{
+	margin-top: 35px;
+	text-align: left;
+	font-size: 20px;
+	overflow：hidden;
+}
+
+.ver-choose{
+	background-color: #ff211c;
+	color: white;
+}
+.ver{
+	float: left;
+	margin-left: 10px;
+	width: 30%;
+}
+.form{
+	width: 150%;
+}
