@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.mappers.newone.OrderMapper">
+	<sql id="queryfororder">
+		<if test="id_orders!=null"><!--如果有id，就用id搜索  -->
+			id_orders = #{id_orders}
+		</if>
+		<if test="orders_uid!=null">
+			and orders_uid = #{orders_uid}
+		</if>
+		<if test="orders_mid!=null">
+			and orders_mid = #{orders_mid}
+		</if>
+		<if test="orders_states!=null">
+			and orders_states = #{orders_states}
+		</if>
+	</sql>
+	
+	<select id="findOrderByInfo" resultType="com.shop.pojo.entity.Order" parameterType="com.shop.pojo.entity.Order">
+		select * from orders
+		<where>
+			<include refid="queryfororder"></include>
+		</where>
+	</select>
+	
+	<update id="cancelOrder">
+		UPDATE orders set orders_states = 'over',orders_mid = #{mid} where id_orders = #{id}
+	</update>
+
+	<update id="setUpOrder">
+		UPDATE orders set orders_states = 'ok',orders_mid = #{mid} where id_orders = #{id}
+	</update>
+	
+	<update id="changeOrderInfo" parameterType="com.shop.pojo.entity.Order">
+		UPDATE orders set orders_remark = #{order.orders_remark},orders_countprice = #{order.orders_countprice},
+		orders_mid = #{order.orders_mid},orders_date = #{order.orders_date} WHERE id_orders = #{order.id_orders}
+	</update>
+</mapper>

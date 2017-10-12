@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.generator.goodsMapper">
+  <resultMap id="BaseResultMap" type="pojo.generator.goods">
+    <id column="id_goods" jdbcType="INTEGER" property="idGoods" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_price" jdbcType="INTEGER" property="goodsPrice" />
+    <result column="goods_num" jdbcType="INTEGER" property="goodsNum" />
+    <result column="goods_comment" jdbcType="VARCHAR" property="goodsComment" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id_goods, goods_name, goods_price, goods_num, goods_comment
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where id_goods = #{idGoods,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from goods
+    where id_goods = #{idGoods,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pojo.generator.goods">
+    insert into goods (id_goods, goods_name, goods_price, 
+      goods_num, goods_comment)
+    values (#{idGoods,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{goodsPrice,jdbcType=INTEGER}, 
+      #{goodsNum,jdbcType=INTEGER}, #{goodsComment,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.generator.goods">
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="idGoods != null">
+        id_goods,
+      </if>
+      <if test="goodsName != null">
+        goods_name,
+      </if>
+      <if test="goodsPrice != null">
+        goods_price,
+      </if>
+      <if test="goodsNum != null">
+        goods_num,
+      </if>
+      <if test="goodsComment != null">
+        goods_comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="idGoods != null">
+        #{idGoods,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null">
+        #{goodsPrice,jdbcType=INTEGER},
+      </if>
+      <if test="goodsNum != null">
+        #{goodsNum,jdbcType=INTEGER},
+      </if>
+      <if test="goodsComment != null">
+        #{goodsComment,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.generator.goods">
+    update goods
+    <set>
+      <if test="goodsName != null">
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null">
+        goods_price = #{goodsPrice,jdbcType=INTEGER},
+      </if>
+      <if test="goodsNum != null">
+        goods_num = #{goodsNum,jdbcType=INTEGER},
+      </if>
+      <if test="goodsComment != null">
+        goods_comment = #{goodsComment,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id_goods = #{idGoods,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pojo.generator.goods">
+    update goods
+    set goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_price = #{goodsPrice,jdbcType=INTEGER},
+      goods_num = #{goodsNum,jdbcType=INTEGER},
+      goods_comment = #{goodsComment,jdbcType=VARCHAR}
+    where id_goods = #{idGoods,jdbcType=INTEGER}
+  </update>
+</mapper>

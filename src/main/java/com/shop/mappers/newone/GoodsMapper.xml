@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.mappers.newone.GoodsMapper">
+	<sql id="queryforgoods">
+		<if test="id_goods!=null"><!--如果有id，就用id搜索  -->
+			id_goods = #{id_goods}
+		</if>
+		<if test="goods_name!=null">
+			and goods_name = #{goods_name}
+		</if>
+	</sql>
+	
+	<select id="findGoodsByInfo" resultType="com.shop.pojo.entity.Goods" parameterType="com.shop.pojo.entity.Goods">
+		select * from goods
+		<where>
+			<include refid="queryforgoods"></include>
+		</where>
+	</select>
+	
+	<delete id="delgoods" parameterType="integer">
+		delete form goods where id_goods = #{id}
+	</delete>
+	
+	<update id="changegoods" parameterType="com.shop.pojo.entity.Goods">
+		update goods set goods_name = #{goods.goods_name},goods_price = #{goods.goods_price}
+		,goods_num = #{goods.goods_num},goods_image = #{goods.goods_image} where id_goods = #{goods.id_goods};
+	</update>
+</mapper>

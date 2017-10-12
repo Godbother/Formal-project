@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.mappers.newone.ShopcarMapper">
+	<sql id="queryforshopcar">
+		<if test="id_shopcar!=null"><!--如果有id，就用id搜索  -->
+			id_shopcar = #{id_shopcar}
+		</if>
+		<if test="shopcar_uid!=null">
+			shopcar_uid = #{shopcar_uid}
+		</if>
+		<if test="orders_id_orders!=null">
+			orders_id_orders = #{orders_id_orders}
+		</if>
+	</sql>
+
+	<sql id="delforshopcar">
+		<if test="id_shopcar!=null"><!--如果有id，就用id搜索  -->
+			id_shopcar = #{id_shopcar}
+		</if>
+		<if test="shopcar_uid!=null"><!--清空购物车用 -->
+			shopcar_uid = #{shopcar_uid}
+		</if>
+	</sql>
+
+	<select id="findShopcarByInfo" resultType="com.shop.pojo.entity.Shopcar" parameterType="com.shop.pojo.entity.Shopcar">
+		select * from shopcar
+		<where>
+			<include refid="queryforshopcar"></include>
+		</where>
+	</select>
+	
+	<insert id="addItemsToShopcar" parameterType="com.shop.pojo.entity.Shopcar">
+		INSERT INTO shopcar VALUES (#{id_shopcar},#{shopcar_itemname},#{shopcar_itemprice},#{shopcar_itemnum},#{shopcar_adddate},
+		#{shopcar_uid},#{orders_id_orders})
+	</insert>
+	
+	<update id="changeShopcarInfo" parameterType="com.shop.pojo.entity.Shopcar">
+		UPDATE shopcar set shopcar_itemprice = #{shopcar.shopcar_itemprice},shopcar_itemnum = #{shopcar.shopcar_itemnum},
+		shopcar_adddate = #{shopcar.shopcar_adddate},orders_id_orders = #{shopcar.orders_id_orders} WHERE id_shopcar = #{shopcar.id_shopcar}
+	</update>
+
+	<delete id="delShopcarInfo" parameterType="com.shop.pojo.entity.Shopcar">
+		DELETE shopcar WHERE
+		<include refid="delforshopcar"></include>
+	</delete>
+</mapper>

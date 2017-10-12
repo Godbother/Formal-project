@@ -1,0 +1,278 @@
+@CHARSET "UTF-8";
+.nav {
+	background-color: #080808;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	z-index: 99;
+	opacity: 0.7;
+	text-align: right;
+	padding-top: 5px;
+}
+
+.body-fixtop {
+	padding: 0px;
+	background-color: #EEEEEE;
+}
+
+.nav-a {
+	margin-right: 5px;
+	letter-spacing: 2px;
+}
+
+.nav-right {
+	letter-spacing: 2px;
+	margin-right: 118px;
+}
+
+.tubiao {
+	position: absolute;
+	z-index: 99;
+	left: 118px;
+	top: 0px;
+	width: 190px;
+	height: 170px;
+	-moz-box-shadow: 0 -12px 10px rgba(0, 0, 0, .2);
+	box-shadow: 0 -12px 10px rgba(0, 0, 0, .2);
+}
+
+.img-patt {
+	width: 100%;
+	height: 100%;
+}
+
+.search {
+	position: absolute;
+	left: 438px;
+	top: 25px;
+	width: 550px;
+	height: 35px;
+}
+
+.search-m {
+	height: 138px;
+	position: relative;
+	z-index: 1;
+}
+
+.shopcar-icon {
+	position: absolute;
+	right: 217px;
+	top: 57px;
+	z-index: 2;
+}
+
+.shopcar-icon-btn {
+	position: absolute;
+	right: 217px;
+	width: 188px;
+	height: 33px;
+	background-color: #fff;
+	text-align: center;
+	line-height: 33px;
+	border: 1px thin;
+}
+
+#shopcar-a:LINK {
+	color: #EE0000;
+}
+
+#shopcar-a:VISITED {
+	color: #EE0000;
+}
+
+#shopcar-a:HOVER {
+	color: #1E90FF;
+	cursor: pointer;
+}
+
+#shopcar-a:ACTIVE {
+	color: #1E90FF;
+}
+
+.sec {
+	height: 480px;
+}
+
+.fir_col {
+	float: left;
+	margin-left: 118px;
+	width: 190px;
+	height: 100%;
+}
+
+.cate-menu {
+	width: 100%;
+	overflow: hidden;
+	padding: 16px 0;
+	height: 95%;
+	background-color: #6e6568;
+	color: #fff;
+}
+
+.cate-menu-item {
+	overflow: hidden;
+	padding-left: 12px;
+	height: 30px;
+	line-height: 25px;
+}
+
+.nextmenu {
+	position: absolute;
+	display: none;
+	left: 308px;
+	background-color: white;
+	z-index: 9;
+	padding: 16px 10px 10px;
+	border: 1px solid;
+	color: black;
+	width: 50%;
+	height: 456px;
+}
+
+.hot-title {
+	overflow: hidden;
+	position: absolute;
+	left: 440px;
+	top: 95px;
+	width: 550px;
+	height: 20px;
+	line-height: 20px;
+	z-index: 10;
+}
+
+a {
+	margin-right: 5px;
+}
+
+.daohang {
+	left: 308px;
+	z-index: 10;
+	top: 138px;
+	position: absolute;
+	width: 50%;
+}
+
+.daohang_item {
+	line-height: 5px;
+	background-color: #EEEEEE;
+}
+
+.act:ACTIVE {
+	color: red;
+}
+
+.big-pic {
+	width: 100%;
+	height: 60%;
+}
+
+.standerd {
+	width: 100%;
+	height: 100%;
+}
+
+.sec-col {
+	margin-left: 10px;
+	float: left;
+	width: 49%;
+	height: 95%;
+	z-index: 8;
+}
+
+.hot-image {
+	width: 100%;
+	height: 45%;
+	margin-top: 7px;
+}
+
+.left_img {
+	float: left;
+	height: 87%;
+	width: 49%;
+	margin-right: 10px;
+}
+
+.right_img {
+	float: left;
+	width: 49%;
+	height: 87%;
+}
+
+.thir-col {
+	float: left;
+	height: 95%;
+	z-index: 8;
+	width: 14%;
+}
+
+.message {
+	padding: 0 15px;
+	height: 115px;
+	border-bottom: 1px solid #e6e6e6;
+	border: 1px solid;
+}
+
+.hot-news {
+	overflow: hidden;
+	height: 154px;
+	border: 1px solid black;
+	margin-bottom: 0px;
+}
+
+.more-servers {
+	overflow: hidden;
+	position: relative;
+	height: 210px;
+	border: 1px solid;
+}
+
+.user_info {
+	overflow: hidden;
+	position: relative;
+	padding: 15px 0 15px;
+	height: 75px;
+}
+
+.user_img_box {
+	float: left;
+	z-index: 10;
+}
+
+.user_img {
+	width: 50px;
+	height: 50px;
+}
+
+.hello_text {
+	margin-left: 10px;
+}
+
+.login {
+	float: left;
+}
+
+.user_do {
+	overflow: hidden;
+	margin-top: 2px;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-left: 10px;
+}
+
+.choise {
+	display: inline-block;
+	margin-right: 10px;
+	width: 70px;
+	height: 30px;
+	border: 2px solid #e01222;
+	line-height: 25px;
+	font-size: 12px;
+	text-align: center;
+}
+.news{
+	height: 30px;
+	line-height: 28px;
+}

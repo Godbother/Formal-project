@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.mappers.newone.UserMapper">
+	<sql id="queryforuser">
+		<if test="id_user!=null"><!--如果有id，就用id搜索  -->
+			id_user = #{id_user}
+		</if>
+		<if test="user_name!=null">
+			and user_name = #{user_name}
+		</if>
+		<if test="shopcar_id_shopcar!=null">
+			and shopcar_id_shopcar = #{shopcar_id_shopcar}
+		</if>
+		<if test="orders_id_orders!=null">
+			and orders_id_orders = #{orders_id_orders}
+		</if>
+	</sql>
+	
+	<select id="findUserByInfo" resultType="com.shop.pojo.entity.User" parameterType="com.shop.pojo.entity.User">
+		select * from users
+		<where>
+			<include refid="queryforuser"></include>
+		</where>
+	</select>
+	
+	<delete id="deluser" parameterType="integer">
+		delete form users where id_user = #{id}
+	</delete>
+	
+	<update id="changeuser" parameterType="com.shop.pojo.entity.User">
+		update users set user_password = #{user.user_password},user_remark = #{user.user_remark}
+		,user_address = #{user.user_address},users_image = #{user.users_image} where id_user = #{user.id_user};
+	</update>
+</mapper>

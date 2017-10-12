@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.generator.ordersMapper">
+  <resultMap id="BaseResultMap" type="pojo.generator.orders">
+    <id column="id_orders" jdbcType="INTEGER" property="idOrders" />
+    <result column="orders_remark" jdbcType="VARCHAR" property="ordersRemark" />
+    <result column="orders_countprice" jdbcType="INTEGER" property="ordersCountprice" />
+    <result column="orders_states" jdbcType="VARCHAR" property="ordersStates" />
+    <result column="orders_mid" jdbcType="INTEGER" property="ordersMid" />
+    <result column="orders_uid" jdbcType="INTEGER" property="ordersUid" />
+    <result column="orders_date" jdbcType="INTEGER" property="ordersDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id_orders, orders_remark, orders_countprice, orders_states, orders_mid, orders_uid, 
+    orders_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where id_orders = #{idOrders,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orders
+    where id_orders = #{idOrders,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pojo.generator.orders">
+    insert into orders (id_orders, orders_remark, orders_countprice, 
+      orders_states, orders_mid, orders_uid, 
+      orders_date)
+    values (#{idOrders,jdbcType=INTEGER}, #{ordersRemark,jdbcType=VARCHAR}, #{ordersCountprice,jdbcType=INTEGER}, 
+      #{ordersStates,jdbcType=VARCHAR}, #{ordersMid,jdbcType=INTEGER}, #{ordersUid,jdbcType=INTEGER}, 
+      #{ordersDate,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.generator.orders">
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="idOrders != null">
+        id_orders,
+      </if>
+      <if test="ordersRemark != null">
+        orders_remark,
+      </if>
+      <if test="ordersCountprice != null">
+        orders_countprice,
+      </if>
+      <if test="ordersStates != null">
+        orders_states,
+      </if>
+      <if test="ordersMid != null">
+        orders_mid,
+      </if>
+      <if test="ordersUid != null">
+        orders_uid,
+      </if>
+      <if test="ordersDate != null">
+        orders_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="idOrders != null">
+        #{idOrders,jdbcType=INTEGER},
+      </if>
+      <if test="ordersRemark != null">
+        #{ordersRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersCountprice != null">
+        #{ordersCountprice,jdbcType=INTEGER},
+      </if>
+      <if test="ordersStates != null">
+        #{ordersStates,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersMid != null">
+        #{ordersMid,jdbcType=INTEGER},
+      </if>
+      <if test="ordersUid != null">
+        #{ordersUid,jdbcType=INTEGER},
+      </if>
+      <if test="ordersDate != null">
+        #{ordersDate,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.generator.orders">
+    update orders
+    <set>
+      <if test="ordersRemark != null">
+        orders_remark = #{ordersRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersCountprice != null">
+        orders_countprice = #{ordersCountprice,jdbcType=INTEGER},
+      </if>
+      <if test="ordersStates != null">
+        orders_states = #{ordersStates,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersMid != null">
+        orders_mid = #{ordersMid,jdbcType=INTEGER},
+      </if>
+      <if test="ordersUid != null">
+        orders_uid = #{ordersUid,jdbcType=INTEGER},
+      </if>
+      <if test="ordersDate != null">
+        orders_date = #{ordersDate,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id_orders = #{idOrders,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pojo.generator.orders">
+    update orders
+    set orders_remark = #{ordersRemark,jdbcType=VARCHAR},
+      orders_countprice = #{ordersCountprice,jdbcType=INTEGER},
+      orders_states = #{ordersStates,jdbcType=VARCHAR},
+      orders_mid = #{ordersMid,jdbcType=INTEGER},
+      orders_uid = #{ordersUid,jdbcType=INTEGER},
+      orders_date = #{ordersDate,jdbcType=INTEGER}
+    where id_orders = #{idOrders,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="public-html-header">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="author" content="Fei">
+<link href="../../../public/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../../public/css/signin.css" rel="stylesheet">
+<link href="../../../public/css/bootstrap-theme.min.css"
+	rel="stylesheet">
+<link href="../../../public/css/ie10-viewport-bug-workaround.css"
+	rel="stylesheet">
+<link href="../../../public/css/theme.css" rel="stylesheet">
+<script src="../../../public/js/ie-emulation-modes-warning.js"></script>
+<link href="../css/user_regist.css"	rel="stylesheet">
+<title>注册页</title>
+</head>
+<body>
+	<div class="container bg-log">
+
+		<form class="form-signin">
+			<h2 class="form-signin-heading" align="center">注册账号</h2>
+			<label for="inputUsername" class="sr-only">用户名</label> <input
+				type="text" id="inputUsername" class="form-control"
+				placeholder="请输入手机号" required autofocus> <label
+				for="inputPassword" class="sr-only">密码</label> <input
+				type="password" id="inputPassword" class="form-control"
+				placeholder="请输入密码" required> <label for="inputPassword1"
+				class="sr-only">确认密码</label> <input type="password" id="inputPassword1"
+				class="form-control" placeholder="请再输入密码" required>
+				<div class="check" id="checkbox">
+					<span class='glyphicon glyphicon-pencil'></span><b>请正确输入用户名!</b>
+				</div>
+			<div class="checkbox" align="center">
+				<label> 
+					<a href="#"><b>已有账号，点我登录</b></a>
+				</label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block disabled" type="submit" id="btn-reg">注册</button>
+		</form>
+
+	</div>
+	<!-- /container -->
+	<div class="homebox">
+		<img alt="home" src="../image/home1.png" id="home" class="home">
+	</div>
+
+</body>
+<script src="../../../public/jquery/jquery.min.js"></script>
+<script src="../../../public/js/bootstrap.min.js"></script>
+<script src="../../../public/js/ie10-viewport-bug-workaround.js"></script>
+<script type="text/javascript">
+	$("#inputPassword1").blur(function(){
+		var p1 = $("#inputPassword").val();
+		var p2 = $("#inputPassword1").val();
+		if(p1 != p2){
+			$("#checkbox").html("<span class='glyphicon glyphicon-pencil'></span><b>两次输入密码不一致!</b>");
+			$("#checkbox").show();
+		}else{
+			$("#checkbox").hide();
+			$("#btn-reg").removeClass("disabled");
+		}
+	})
+	
+	
+	$("#inputUsername").blur(function(){
+		var name = $("#inputUsername").val();
+		if(!/^1\d{10}$/.test(name)){
+			$("#checkbox").html("<span class='glyphicon glyphicon-pencil'></span><b>请正确输入用户名!</b>");
+			$("#checkbox").show();
+		}else{
+			$("#checkbox").hide();
+		}
+	})
+	
+</script>
+</html>

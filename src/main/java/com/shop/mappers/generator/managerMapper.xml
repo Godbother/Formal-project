@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.generator.managerMapper">
+  <resultMap id="BaseResultMap" type="pojo.generator.manager">
+    <id column="id_manager" jdbcType="INTEGER" property="idManager" />
+    <result column="manager_name" jdbcType="VARCHAR" property="managerName" />
+    <result column="manager_password" jdbcType="VARCHAR" property="managerPassword" />
+    <result column="manager_image" jdbcType="VARCHAR" property="managerImage" />
+    <result column="manager_remark" jdbcType="VARCHAR" property="managerRemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id_manager, manager_name, manager_password, manager_image, manager_remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from manager
+    where id_manager = #{idManager,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from manager
+    where id_manager = #{idManager,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pojo.generator.manager">
+    insert into manager (id_manager, manager_name, manager_password, 
+      manager_image, manager_remark)
+    values (#{idManager,jdbcType=INTEGER}, #{managerName,jdbcType=VARCHAR}, #{managerPassword,jdbcType=VARCHAR}, 
+      #{managerImage,jdbcType=VARCHAR}, #{managerRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.generator.manager">
+    insert into manager
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="idManager != null">
+        id_manager,
+      </if>
+      <if test="managerName != null">
+        manager_name,
+      </if>
+      <if test="managerPassword != null">
+        manager_password,
+      </if>
+      <if test="managerImage != null">
+        manager_image,
+      </if>
+      <if test="managerRemark != null">
+        manager_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="idManager != null">
+        #{idManager,jdbcType=INTEGER},
+      </if>
+      <if test="managerName != null">
+        #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="managerPassword != null">
+        #{managerPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="managerImage != null">
+        #{managerImage,jdbcType=VARCHAR},
+      </if>
+      <if test="managerRemark != null">
+        #{managerRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.generator.manager">
+    update manager
+    <set>
+      <if test="managerName != null">
+        manager_name = #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="managerPassword != null">
+        manager_password = #{managerPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="managerImage != null">
+        manager_image = #{managerImage,jdbcType=VARCHAR},
+      </if>
+      <if test="managerRemark != null">
+        manager_remark = #{managerRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id_manager = #{idManager,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pojo.generator.manager">
+    update manager
+    set manager_name = #{managerName,jdbcType=VARCHAR},
+      manager_password = #{managerPassword,jdbcType=VARCHAR},
+      manager_image = #{managerImage,jdbcType=VARCHAR},
+      manager_remark = #{managerRemark,jdbcType=VARCHAR}
+    where id_manager = #{idManager,jdbcType=INTEGER}
+  </update>
+</mapper>

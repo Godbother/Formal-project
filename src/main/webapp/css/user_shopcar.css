@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+.nav {
+	background-color: #080808;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	z-index: 99;
+	opacity: 0.7;
+	text-align: right;
+	padding-top: 5px;
+	position: absolute;
+}
+.nav-a {
+	margin-right: 5px;
+	letter-spacing: 2px;
+}
+.nav-right {
+	letter-spacing: 2px;
+	margin-right: 118px;
+}
+.logo{
+	width: 300px;
+	height: 200px;
+}
+.title{
+	color: red;
+	font-size: 45px;
+	border-bottom: red 1px solid;
+	margin-bottom: 5px;
+}
