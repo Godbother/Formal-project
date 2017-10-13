@@ -47,7 +47,8 @@
 					</div>
 					<div class="col-md-3 col-lg-3 standerd">${item.shopcar_itemprice}</div>
 					<div class="col-md-3 col-lg-3 standerd">
-						<a class="btn btn-primary">删除</a>
+						<button class="btn btn-danger">删除</button>
+						<button class="btn btn-primary">详细</button>
 					</div>
 				</c:forEach>
 			</c:if>

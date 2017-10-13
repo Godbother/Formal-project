@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored ="false" %>
 <%
 	String path = request.getContextPath();
@@ -24,6 +25,18 @@
 			我的订单
 		</div>
 		<div>
+			<div class="col-md-2 col-lg-2 standerd">订单号</div>
+			<div class="col-md-5 col-lg-5 standerd">总价</div>
+			<div class="col-md-5 col-lg-5 standerd">操作</div>
+			<hr/>
+			<c:forEach items="orderlist" var="item">
+				<div class="col-md-2 col-lg-2 standerd">${item.id_orders}</div>
+				<div class="col-md-5 col-lg-5 standerd">${item.orders_countprice}</div>
+				<div class="col-md-5 col-lg-5 standerd">
+					<button class="btn btn-danger">删除</button>
+					<button class="btn btn-primary">详细</button>
+				</div>
+			</c:forEach>
 			<span >订单暂时为空</span>
 			<hr>
 			<!-- <button class="btn btn-danger">清空购物车</button>
