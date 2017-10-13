@@ -35,4 +35,14 @@ public class GoodsController {
 		modelAndView.setViewName("back/back_goods");
 		return modelAndView;
 	}
+	
+	@RequestMapping("/getgoodsinfo")
+	public ModelAndView getgoodsinfo(@RequestParam(value = "id", required = true) Integer gid,
+			@RequestParam(value = "gname", required = false) String gname){
+		ModelAndView modelAndView = new ModelAndView();
+		List<Goods> goodslist = goodsServiceImpl.findGoodsByInfo(new Goods(gid, gname, null, null, null, null));
+		modelAndView.addObject("goods", goodslist.get(0));
+		modelAndView.setViewName("user/itemsdetail");
+		return modelAndView;
+	}
 }

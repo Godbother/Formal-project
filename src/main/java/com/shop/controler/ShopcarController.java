@@ -7,6 +7,7 @@ import com.shop.service.ShopcarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -51,7 +52,7 @@ public class ShopcarController{
         return modelAndView;
     }
 
-    @RequestMapping("/additem")
+    @RequestMapping(value = "/additem",method = RequestMethod.POST)
     public ModelAndView additem(@RequestParam(value = "gid", required = true) Integer gid,
                                 @RequestParam(value = "num", required = true) Integer num,
                                 HttpSession session){
